@@ -1,0 +1,64 @@
+[
+    {
+        "id": "989a6274.7f3e6",
+        "type": "switch",
+        "z": "6d2c3d7e.4fc894",
+        "name": "limiter",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "200",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1090,
+        "y": 1000,
+        "wires": [
+            [
+                "a61a831f.1ab43"
+            ]
+        ]
+    },
+    {
+        "id": "a61a831f.1ab43",
+        "type": "function",
+        "z": "6d2c3d7e.4fc894",
+        "name": "val to bool conversion",
+        "func": "var value = msg.payload;\nvar booleanValue = Boolean(value);\nreturn {payload: booleanValue};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1280,
+        "y": 1000,
+        "wires": [
+            [
+                "430d2e79.e85fa",
+                "6428216c.90ec6"
+            ]
+        ]
+    },
+    {
+        "id": "6428216c.90ec6",
+        "type": "debug",
+        "z": "6d2c3d7e.4fc894",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1750,
+        "y": 960,
+        "wires": []
+    }
+]
